@@ -1,0 +1,123 @@
+.popup {
+    margin: 0 auto;
+    background: rgba(0, 0, 0, 0.5);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .5s, visibility .5s linear;
+}
+
+.popup_is-opened {
+    visibility: visible;
+    opacity: 1;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.popup__background {
+    background-color: white;
+    width: 68vw;
+    display: flex;
+    flex-direction: column;
+    /* height: 100vh; */
+    align-items: center;
+    position: relative;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    margin-top: 130px;
+    align-items: center;
+}
+
+.popup__button-close {
+    /* border: 2px green solid; */
+    border: none;
+    background-image: url('../../images/Group.svg');
+    padding: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* background-size: 22px 22px; */
+    width: 22px;
+    height: 22px;
+    align-self: flex-end;
+    background-color: white;
+    margin-top: 13px;
+    margin-right: 13px;
+    position: absolute;
+    top: 13px;
+    /* left: -13px; */
+
+}
+
+.menu__icon {
+    background-image: url(../../images/icon__COLOR_icon-main.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 30px;
+    height: 30px;
+    background-color: #F9F9F9;
+    border-radius: 6px;
+    border: none;
+    margin-left: 13px;
+}
+
+.menu__link {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;  
+    text-decoration: none;
+    color: black;
+    margin-bottom: 28px;
+    width: fit-content;
+    padding-bottom: 4px;
+}
+
+.menu__link:hover {
+    border-bottom: 2px black solid;
+}
+
+.menu__container {
+    display: flex;
+    justify-content: center;
+    margin-top: 600px;
+}
+
+@media screen and (max-width: 800px) {
+    .menu {
+        margin-top: 160px;
+    }
+
+    .popup__button-close {
+        margin-right: 28px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .popup__background {
+        width: 100vw;
+    }
+
+    .menu__container {
+        margin-top: 411px;
+        align-items: center;
+    }
+
+    .popup__button-close {
+        margin-top: 6px;
+        margin-right: 18px;
+    }
+
+    .menu__link_size_small {
+        font-size: 14px;
+        line-height: 16px;
+        margin-bottom: 0;
+        padding: 0;
+      
+    }
+
+}

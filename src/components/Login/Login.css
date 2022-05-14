@@ -1,0 +1,10 @@
+.sign__button_login {
+    margin-top: 200px;
+}
+
+@media screen and (max-width: 500px) {
+    .sign__button_login {
+        margin-top: 289px;
+    }
+}
+

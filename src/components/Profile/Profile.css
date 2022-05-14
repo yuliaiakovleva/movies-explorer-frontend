@@ -1,0 +1,123 @@
+.section-form {
+    min-height: 626px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section-form__header {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    margin-top: 74px;
+    margin-bottom: 123px;
+}
+
+.section-form__form {
+    display: flex;
+    flex-direction: column;
+}
+
+.section-form__label {
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 13px;
+    text-align: start;
+}
+
+.section-form__label_name {
+    border-bottom: 1px #E8E8E8 solid;
+}
+
+.section-form__label_email {
+    margin-top: 17px;
+}
+
+.section-form__input {
+    background-color: #FFFFFF;
+    padding-bottom: 18px;
+    border: none;
+    outline: none;
+    text-align: end;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 13px;
+    width: 30vw;
+    color: black;
+}
+
+/* .section-form__input_name {
+    margin-top: 123px;
+    margin-bottom: 17px;
+    border-bottom: 1px #E8E8E8 solid;
+} */
+
+.section-form__link {
+    margin-top: 16px;
+    margin-bottom: 70px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16px;
+    text-align: center;
+    color: #FF4062;
+}
+
+.section-form__button {
+    font-size: 13px;
+    line-height: 16px;
+    align-items: center;
+    text-align: center;
+    margin-top: 200px;
+    cursor: pointer;
+    border: none;
+    background-color: inherit;
+}
+
+
+
+@media screen and (min-width: 420px) and (max-width: 800px) {
+    .section-form {
+        margin-top: 166px;
+    }  
+
+    .section-form__header {
+        margin-bottom: 90px;
+    }
+
+
+    .section-form__input {
+        width: 50vw;
+    }
+
+}
+
+@media screen and (max-width: 419px) {
+    .section-form__button {
+        font-size: 12px;
+        line-height: 15px;
+    }
+
+    .section-form {
+        margin-top: 60px;
+    }
+
+    .section-form__header {
+        margin-top: 0;
+        margin-bottom: 80px;
+    }
+
+    .section-form__button {
+        margin-top: 360px;
+    }
+
+    .section-form__link {
+        margin-bottom: 0;
+    }
+
+    .section-form__input {
+        width: 70vw;
+    }
+}
+
