@@ -21,15 +21,12 @@ function Profile(props) {
 
   function handleChange(e) {
     const { name, value } = e.target;
-    console.log(e.target.value);
     setDisabled(false);
     setValues((prevState) => ({
       ...prevState,
       [name]: value,
     }));
     setValidity(e.target.validity.valid);
-
-    console.log(e.target.validationMessage);
 
     if (!isValid) {
       const { name, validationMessage } = e.target;

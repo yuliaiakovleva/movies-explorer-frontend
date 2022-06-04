@@ -1,6 +1,6 @@
 // запросы к нашему апи
 
-const BASE_URL = "http://localhost:3000/api";
+const BASE_URL = "https://api.beatfilm.nomoredomains.work/api";
 
 function checkResponse(res) {
   if (res.ok) {

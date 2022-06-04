@@ -19,8 +19,6 @@ function Register(props) {
   // const [isValid, setValidity] = useState(false);
   const [isValid, setValidity] = useState(false);
   const isFulfiled = Object.values(values).every((item) => item !== '')
-  console.log(isFulfiled)
-  // console.log(isValid)
 
   // метод, который будет срабатывать при каждом вводе в инпут
   function handleChange(e) {
