@@ -1,5 +1,3 @@
-/* .sign {
-} */
 
 .sign__form {
     margin: 70px 70px 0;
@@ -48,12 +46,20 @@
     border-bottom: 1px black solid;
 }
 
+.sign__input:invalid {
+    color: red;
+}
+
 .sign__error {
-    display: none;
+    visibility: hidden;
     font-size: 10px;
     line-height: 12px;
     margin-top: 6px;
     color: #FF0000;
+}
+
+.sign__error_visible {
+    visibility: visible;
 }
 
 .sign__button {
@@ -70,6 +76,10 @@
     top: 552px; */
     /* position: relative; */
     width: 396px;
+}
+
+.sign__button_invalid {
+    background: #A0A0A0;
 }
 
 .sign__container {

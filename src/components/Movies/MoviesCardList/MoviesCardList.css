@@ -32,6 +32,10 @@
     line-height: 15px;
 }
 
+.movies-list__button_inactive {
+    visibility: hidden;
+}
+
 @media screen and (min-width: 701px) and (max-width: 850px) {
     .list {
         column-gap: 24px;

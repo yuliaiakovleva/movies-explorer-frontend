@@ -1,193 +1,49 @@
 import React from "react";
 import "./MoviesCard.css";
-import photo from "../../../images/pic__COLOR_pic (1).png";
 
-function MoviesCard() {
+function MoviesCard(props) {
+  function handleSubmit() {
+    props.onAddMovie(props);
+  }
+
+  function handleDelete() {
+    props.onDeleteMovie(props);
+  }
+
+  function handleButtonClick(e) {
+    e.preventDefault();
+    if (!props.isClicked) {
+      handleSubmit();
+    } else {
+      handleDelete();
+    }
+  }
 
   return (
     <>
-   <li className="list__item">
-        <div className="list__container">
-          <p className="list__name">В погоне за бенкси</p>
-          <p className="list__info">27 минут</p>
-        </div>
-        <img className="list__image" alt="постер фильма" src={photo}></img>
-        <form className="list__form">
-          <button
-            className="list__button list__button_inactive "
-            type="submit"
-            name="save"
-            // value="Сохранить"
-          >Сохранить</button>
-        </form>
-      </li>
       <li className="list__item">
         <div className="list__container">
-          <p className="list__name">В погоне за бенкси</p>
-          <p className="list__info">27 минут</p>
+          <p className="list__name">{props.nameRU}</p>
+          <p className="list__info">{props.duration}</p>
         </div>
-        <img className="list__image" alt="постер фильма" src={photo}></img>
-        <form className="list__form">
+        <a href={props.trailerLink} target="_blank" rel="noreferrer">
+          <img
+            className="list__image"
+            alt="постер фильма"
+            src={props.imageUrl}
+          ></img>
+        </a>
+        <form className="list__form" onSubmit={handleButtonClick}>
           <button
-            className="list__button list__button_active"
+            className={`list__button ${
+              props.isClicked ? "list__button_active" : "list__button_inactive"
+            } `}
             type="submit"
             name="save"
-            // value="Сохранить"
+            children={`${props.isClicked ? "" : "Сохранить"}`}
           ></button>
         </form>
       </li>
-      {/* <li className="list__item">
-        <div className="list__container">
-          <p className="list__name">В погоне за бенкси</p>
-          <p className="list__info">27 минут</p>
-        </div>
-        <img className="list__image" alt="постер фильма" src={photo}></img>
-        <form className="list__form">
-          <button
-            className="list__button list__button_active"
-            type="submit"
-            name="save"
-            // value="Сохранить"
-          ></button>
-        </form>
-      </li>
-     <li className="list__item">
-        <div className="list__container">
-          <p className="list__name">В погоне за бенкси</p>
-          <p className="list__info">27 минут</p>
-        </div>
-        <img className="list__image" alt="постер фильма" src={photo}></img>
-        <form className="list__form">
-          <button
-            className="list__button list__button_inactive"
-            type="submit"
-            name="save"
-            // value="Сохранить"
-          >Сохранить</button>
-        </form>
-      </li>
-      <li className="list__item">
-        <div className="list__container">
-          <p className="list__name">В погоне за бенкси</p>
-          <p className="list__info">27 минут</p>
-        </div>
-        <img className="list__image" alt="постер фильма" src={photo}></img>
-        <form className="list__form">
-          <button
-            className="list__button list__button_inactive"
-            type="submit"
-            name="save"
-            // value="Сохранить"
-          >Сохранить</button>
-        </form>
-      </li>  */}
-
-      {/*  <li className="list__item">
-        <div className="list__container">
-          <p className="list__name">В погоне за бенкси</p>
-          <p className="list__info">27 минут</p>
-        </div>
-        <img className="list__image" alt="постер фильма" src={photo}></img>
-        <form className="list__form">
-          <button
-            className="list__button list__button_inactive"
-            type="submit"
-            name="save"
-            // value="Сохранить"
-          >Сохранить</button>
-        </form>
-      </li>
-      <li className="list__item">
-        <div className="list__container">
-          <p className="list__name">В погоне за бенкси</p>
-          <p className="list__info">27 минут</p>
-        </div>
-        <img className="list__image" alt="постер фильма" src={photo}></img>
-        <form className="list__form">
-          <button
-            className="list__button list__button_inactive"
-            type="submit"
-            name="save"
-            // value="Сохранить"
-          >Сохранить</button>
-        </form>
-      </li>
-      <li className="list__item">
-        <div className="list__container">
-          <p className="list__name">В погоне за бенкси</p>
-          <p className="list__info">27 минут</p>
-        </div>
-        <img className="list__image" alt="постер фильма" src={photo}></img>
-        <form className="list__form">
-          <button
-            className="list__button list__button_inactive"
-            type="submit"
-            name="save"
-            // value="Сохранить"
-          >Сохранить</button>
-        </form>
-      </li> */}
-      {/* <li className="list__item">
-        <div className="list__container">
-          <p className="list__name">В погоне за бенкси</p>
-          <p className="list__info">27 минут</p>
-        </div>
-        <img className="list__image" alt="постер фильма" src={photo}></img>
-        <form className="list__form">
-          <button
-            className="list__button list__button_inactive"
-            type="submit"
-            name="save"
-            // value="Сохранить"
-          >Сохранить</button>
-        </form>
-      </li> */}
-      {/* <li className="list__item">
-        <div className="list__container">
-          <p className="list__name">В погоне за бенкси</p>
-          <p className="list__info">27 минут</p>
-        </div>
-        <img className="list__image" alt="постер фильма" src={photo}></img>
-        <form className="list__form">
-          <button
-            className="list__button list__button_inactive"
-            type="submit"
-            name="save"
-            // value="Сохранить"
-          >Сохранить</button>
-        </form>
-      </li>
-      <li className="list__item">
-        <div className="list__container">
-          <p className="list__name">В погоне за бенкси</p>
-          <p className="list__info">27 минут</p>
-        </div>
-        <img className="list__image" alt="постер фильма" src={photo}></img>
-        <form className="list__form">
-          <button
-            className="list__button list__button_inactive"
-            type="submit"
-            name="save"
-            // value="Сохранить"
-          >Сохранить</button>
-        </form>
-      </li>
-      <li className="list__item">
-        <div className="list__container">
-          <p className="list__name">В погоне за бенкси</p>
-          <p className="list__info">27 минут</p>
-        </div>
-        <img className="list__image" alt="постер фильма" src={photo}></img>
-        <form className="list__form">
-          <button
-            className="list__button list__button_inactive"
-            type="submit"
-            name="save"
-            // value="Сохранить"
-          >Сохранить</button>
-        </form>
-      </li> */}
-      
     </>
   );
 }

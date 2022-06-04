@@ -3,7 +3,6 @@
     min-height: 619px;
 }
 
-
 .movies_saved {
     padding-bottom: 0px;
 }
@@ -19,9 +18,3 @@
         padding: 0;
     }
 }
-
-/* @media screen and (min-width: 420px) and (max-width: 8500px) {
-    .movies_saved {
-        padding-bottom: 240px;
-    }
-} */

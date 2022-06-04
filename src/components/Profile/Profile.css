@@ -3,6 +3,23 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    
+}
+
+.container-label {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 80%;
+}
+
+
+
+.container-label__span {
+    text-align: end;
+    margin-top: 0;
+    color: red;
+    min-height: 13px;
 }
 
 .section-form__header {
@@ -18,24 +35,35 @@
     flex-direction: column;
 }
 
-.section-form__label {
+.label-row {
     font-weight: 500;
     font-size: 11px;
     line-height: 13px;
     text-align: start;
 }
 
+.section-form__label {
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 13px;
+    text-align: start;
+    display: flex;
+    justify-content: space-between;
+}
+
 .section-form__label_name {
     border-bottom: 1px #E8E8E8 solid;
+    max-width: 410px;
 }
 
 .section-form__label_email {
     margin-top: 17px;
+    max-width: 410px;
 }
 
 .section-form__input {
     background-color: #FFFFFF;
-    padding-bottom: 18px;
+    /* padding-bottom: 18px; */
     border: none;
     outline: none;
     text-align: end;
@@ -75,6 +103,16 @@
     background-color: inherit;
 }
 
+.section-form__button_inactive {
+    color: green;
+}
+
+
+@media screen and (min-width: 700px) and (max-width: 800px) {
+    .container-label {
+        width: 100%;
+    }
+}
 
 
 @media screen and (min-width: 420px) and (max-width: 800px) {

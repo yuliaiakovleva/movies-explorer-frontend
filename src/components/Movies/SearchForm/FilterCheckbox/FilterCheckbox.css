@@ -4,8 +4,6 @@
     align-items: center;
 }
 
-
-
 .switch {
     width: 36px;
     height: 20px;
@@ -23,7 +21,7 @@
     width: 16px;
     height: 16px;
     border-radius: 20px;
-    background-color:  #2BE080;
+    background-color:  #F5F5F5;;
     top: 13%;
     bottom: 13%;
     margin-left: 2px;
@@ -31,6 +29,7 @@
 
 .switch:checked::before {
     right: 5.56%;
+    background-color:  #2BE080;
 }
 
 .switch__label {
