@@ -118,8 +118,6 @@ const [ visibility, setVisibility ] = useState('')
           setSearchTag("");
           // благодаря этому вызову я меняю мейл сразу же
           handleTokenCheck('/movies')
-          console.log(localStorage);
-  
           mainApi.getCurrentUser().then((data) => {
             setCurrentUser(data);
           });
@@ -127,7 +125,7 @@ const [ visibility, setVisibility ] = useState('')
           history.push("/movies");
         })
         .catch((err) => {
-          console.log(err);
+          // console.log(err);
           handleInfo('Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз')
         });
     }
@@ -256,7 +254,6 @@ const [ visibility, setVisibility ] = useState('')
           handleInfo('Ничего не найдено')
             setSearchSaveResult(savedMovies);
         } else {
-          console.log(filterSavedMovies)
           setIsLoading(false)
           return setSearchSaveResult(filterSavedMovies)
         }
