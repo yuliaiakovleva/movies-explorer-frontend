@@ -110,7 +110,7 @@ const [ visibility, setVisibility ] = useState('')
       mainApi
         .authorize(data.email, data.password)
         .then((res) => {
-          console.log(res);
+          // console.log(res);
           // при авторизации мы записываем в локал сторрадж токен. потом в app в функции handleTokenCheck будем его все время проверять
           localStorage.setItem("jwt", res.token);
           setLoggedIn(true);
@@ -362,6 +362,8 @@ const [ visibility, setVisibility ] = useState('')
     setToken(null);
     localStorage.setItem("searchResult", []);
     localStorage.setItem("searchTag", "");
+    localStorage.removeItem('/movies')
+    localStorage.removeItem('/saved-movies')
     console.dir(localStorage);
     setLoggedIn(false);
     setCurrentUser({});
