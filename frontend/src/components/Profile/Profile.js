@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Profile.css";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import validator from 'validator';
 
 function Profile(props) {
   const currentUser = React.useContext(CurrentUserContext);
@@ -18,18 +19,34 @@ function Profile(props) {
   });
 
   const [isValid, setValidity] = useState(false);
+  const isEmail = validator.isEmail(values.email);
+  const endOfEmailWithButton = values.email.endsWith('.')
+
+
+// нельзя изменять имя на то же самое
+  useEffect(() => {
+    if(currentUser.name === values.name) {
+      // console.log("получилось")
+      setDisabled(true)
+    } else return 
+  }, [values.name])
+
+// нельзя изменять почту на ту же самую
+  useEffect(() => {
+    if(currentUser.email === values.email) {
+      // console.log("получилось")
+      setDisabled(true)
+    } else return 
+  }, [values.email])
 
   function handleChange(e) {
     const { name, value } = e.target;
-    console.log(e.target.value);
     setDisabled(false);
     setValues((prevState) => ({
       ...prevState,
       [name]: value,
     }));
     setValidity(e.target.validity.valid);
-
-    console.log(e.target.validationMessage);
 
     if (!isValid) {
       const { name, validationMessage } = e.target;
@@ -41,6 +58,20 @@ function Profile(props) {
       setError("");
     }
   }
+
+  useEffect(() => {
+    if (!isEmail && isValid) {
+      setError({email: "Некорректный email"})
+      setDisabled(true)
+    } else if (endOfEmailWithButton) {
+      setError({email: "Недопустимое положение символа '.' в адресе"})
+      setDisabled(true)
+    } else {
+      setDisabled(false)
+    }
+  }, [values.email])
+
+
 
   // отправляем данные в запрос к апи
   function handleSubmit(e) {
@@ -57,6 +88,7 @@ function Profile(props) {
     // выключаем кнопку, как только обновили информацию
     setDisabled(true);
   }, [currentUser]);
+
 
   return (
     <section className="section-form">
@@ -91,7 +123,7 @@ function Profile(props) {
           E-mail
           <div className="container-label">
             <input
-              className="section-form__input"
+              className={`section-form__input ${!isEmail ? "section-form__input_invallid" : ""}`}
               type="email"
               name="email"
               value={values.email}

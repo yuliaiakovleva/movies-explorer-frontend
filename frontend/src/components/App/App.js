@@ -164,6 +164,7 @@ const [ visibility, setVisibility ] = useState('')
         .then(() => {
           console.log(data);
           setCurrentUser(data);
+          handleInfo('Ваш профиль изменен')
         })
           .catch((err) => {
           console.log("Ошибка.", err);
@@ -364,7 +365,7 @@ const [ visibility, setVisibility ] = useState('')
     console.dir(localStorage);
     setLoggedIn(false);
     setCurrentUser({});
-    history.push("/signin");
+    history.push("/");
   }
 
 
@@ -409,6 +410,7 @@ const [ visibility, setVisibility ] = useState('')
             setFilter={setFilter}
             location={location.pathname}
             filter={filter}
+            
           ></ProtectedRoute>
 
           <ProtectedRoute
@@ -430,6 +432,7 @@ const [ visibility, setVisibility ] = useState('')
             searchSaveResult={searchSaveResult}
             onSearch={onSearch}
             isLoading={isLoading}
+   
           ></ProtectedRoute>
 
           <ProtectedRoute

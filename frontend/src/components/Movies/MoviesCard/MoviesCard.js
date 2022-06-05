@@ -19,6 +19,8 @@ function MoviesCard(props) {
     }
   }
 
+  console.log(props.location);
+
   return (
     <>
       <li className="list__item">
@@ -34,14 +36,16 @@ function MoviesCard(props) {
           ></img>
         </a>
         <form className="list__form" onSubmit={handleButtonClick}>
-          <button
-            className={`list__button ${
-              props.isClicked ? "list__button_active" : "list__button_inactive"
-            } `}
-            type="submit"
-            name="save"
-            children={`${props.isClicked ? "" : "Сохранить"}`}
-          ></button>
+              <button
+                className={`list__button  ${
+                  props.isClicked && props.location.pathname === '/movies'
+                    ? "list__button_active"
+                    : "list__button_inactive"
+                } ${props.location.pathname === '/saved-movies' ? 'list__button_saved' : ''} `}
+                type="submit"
+                name="save"
+                children={`${props.isClicked ? "" : "Сохранить"}`}
+              ></button>
         </form>
       </li>
     </>

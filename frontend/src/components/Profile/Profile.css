@@ -74,6 +74,10 @@
     color: black;
 }
 
+.section-form__input_invallid {
+    color: red;
+}
+
 /* .section-form__input_name {
     margin-top: 123px;
     margin-bottom: 17px;

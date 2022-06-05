@@ -37,6 +37,7 @@ function SavedMoviesCardList(props) {
               thumbnailUrl={item.thumbnail}
               onDeleteMovie={props.onDeleteMovie}
               onAddMovie={props.onAddMovie}
+              location={props.location}
             />
           );
         })}

@@ -85,6 +85,7 @@ function MoviesCardList(props) {
                 (movie) => movie.movieId === item.id
               )}
               setIsClicked={props.setIsClicked}
+              location={props.location}
             />
           );
         })}

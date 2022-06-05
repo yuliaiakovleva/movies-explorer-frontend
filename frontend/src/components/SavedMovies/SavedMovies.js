@@ -30,6 +30,7 @@ function SavedMovies(props) {
               : props.searchSaveResult
           }
           onDeleteMovie={props.onDeleteMovie}
+          location={props.location}
         ></SavedMoviesCardList>
       </section>
       <Footer></Footer>

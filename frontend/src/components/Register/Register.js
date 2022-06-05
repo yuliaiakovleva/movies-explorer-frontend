@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../Register/Register.css'
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import validator from 'validator';
 
 function Register(props) {
 
@@ -16,11 +17,40 @@ function Register(props) {
     password: '',
   });
 
+  const [isValid, setValidity] = useState({
+    name: false,
+    email: false,
+    password: false,
+  })
+
   // const [isValid, setValidity] = useState(false);
-  const [isValid, setValidity] = useState(false);
   const isFulfiled = Object.values(values).every((item) => item !== '')
-  console.log(isFulfiled)
-  // console.log(isValid)
+  const isEmail = validator.isEmail(values.email)
+  const endOfEmailWithButton = values.email.endsWith('.')
+  
+
+
+    // делаем кнопку неактивной в любой момент времени, а не только после перезагрузки страницы
+    useEffect(() => {
+      const button = document.querySelector("#signup-button");
+      if (!isFulfiled || !isValid || !isEmail) {
+        button.setAttribute("disabled", "disabled");
+        button.classList.add("sign__button_invalid");
+      } else {
+        button.disabled = false;
+        button.classList.remove("sign__button_invalid");
+      }
+    });
+
+    useEffect(() => {
+      if (!isEmail && isValid.email) {
+        setError({email: "Некорректный email"})
+      } else if (endOfEmailWithButton) {
+        setError({email: "Недопустимое положение символа '.' в адресе"})
+      } else {
+        return
+      }
+    }, [values.email])
 
   // метод, который будет срабатывать при каждом вводе в инпут
   function handleChange(e) {
@@ -29,11 +59,14 @@ function Register(props) {
       ...prevState,
       [name]: value
     }));
-    console.log(e.target.name)
-    setValidity(isFulfiled && e.target.validity.valid);
-    if (!isValid) {
+    // console.log(e.target.name)
+    setValidity((prevState) => ({
+      ...prevState,
+      [name]: e.target.validity.valid,
+    }));
+    if (!isValid.email || !isValid.password || !isValid.name) {
       const {name, validationMessage} = e.target
-      console.log(validationMessage)
+      // console.log(validationMessage)
       setError(prevState => ({
         ...prevState,
         [name] : validationMessage
@@ -78,7 +111,7 @@ function Register(props) {
             <input
               value={values.email} 
               onChange={handleChange}
-              className="sign__input"
+              className={`sign__input ${!isEmail ? "sign__input_invallid" : ""}`}
               type="email"
               name="email"
               required
@@ -96,7 +129,7 @@ function Register(props) {
             ></input>
              <span className={`sign__error ${error.password === '' ? '' : 'sign__error_visible'}`}>{error.password}</span>
           </label>
-          <button className={`sign__button ${!isValid ? 'sign__button_invalid' : ''} `} disabled={!isValid} type="submit">Зарегистрироваться</button>
+          <button className='sign__button' type="submit" id='signup-button'>Зарегистрироваться</button>
           <div className="sign__container">
               <p className="sign__text">Уже зарегистрировались?</p>
               <Link className="sign__link" to="/signin">Войти</Link>

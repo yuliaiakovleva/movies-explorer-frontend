@@ -63,8 +63,17 @@
 .list__button_active {
     background-color: #FF4062;
     background-image: url('../../../images/icon__COLOR_invisible.svg');
+    /* background-image: url('../../../images/icon__COLOR_icon-main-reset.svg'); */
     background-repeat: no-repeat;
     background-position: center;
 
+}
+
+.list__button_saved {
+    
+    background-image: url('../../../images/icon__COLOR_icon-main-reset.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    box-shadow: none;
 }
 
