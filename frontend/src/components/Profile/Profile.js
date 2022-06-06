@@ -32,12 +32,12 @@ function Profile(props) {
   }, [values.name])
 
 // нельзя изменять почту на ту же самую
-  useEffect(() => {
-    if(currentUser.email === values.email) {
-      // console.log("получилось")
-      setDisabled(true)
-    } else return 
-  }, [values.email])
+  // useEffect(() => {
+  //   if(currentUser.email === values.email) {
+  //     // console.log("получилось")
+  //     setDisabled(true)
+  //   } else setDisabled(false)
+  // }, [values.email])
 
   function handleChange(e) {
     const { name, value } = e.target;
@@ -66,6 +66,9 @@ function Profile(props) {
     } else if (endOfEmailWithButton) {
       setError({email: "Недопустимое положение символа '.' в адресе"})
       setDisabled(true)
+    } else if (currentUser.email === values.email) {
+     // console.log("получилось")
+      setDisabled(true)
     } else {
       setDisabled(false)
     }
@@ -75,9 +78,10 @@ function Profile(props) {
 
   // отправляем данные в запрос к апи
   function handleSubmit(e) {
-    e.preventDefault();
+    e.preventDefault()
     props.onUpdateUser(values);
-  }
+    }
+
 
   // вставляем значения в инпуты
   React.useEffect(() => {
