@@ -1,0 +1,3 @@
+[submodule "movies-explorer-api"]
+	path = movies-explorer-api
+	url = https://github.com/yuliaiakovleva/movies-explorer-api

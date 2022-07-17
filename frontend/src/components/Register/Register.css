@@ -1,0 +1,148 @@
+
+.sign__form {
+    margin: 70px 70px 0;
+    width: 396px;
+}
+
+.sign__header {
+    text-align: start;
+    margin: 0 0 40px;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+}
+
+.sign__logo {
+    margin-bottom: 40px;
+}
+
+.sign__label {
+    display: flex;
+    flex-direction: column;
+    color: #A0A0A0;
+    margin-bottom: 28px;
+    border: none;
+}
+
+/* .sign__label:hover {
+    border-bottom: 1px black solid;
+} */
+
+.sign__input {
+    text-align: start;
+    padding: 5px 0 10px;
+    border: none;
+    border-bottom: 1px #E8E8E8 solid;
+    width: 100%;
+    background-color: #FFFFFF;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 13px;
+    outline: none;
+    color: black;
+}
+
+.sign__input_invallid {
+    color: red;
+}
+
+.sign__input:hover {
+    border-bottom: 1px black solid;
+}
+
+.sign__input:invalid {
+    color: red;
+}
+
+.sign__error {
+    visibility: hidden;
+    font-size: 10px;
+    line-height: 12px;
+    margin-top: 6px;
+    color: #FF0000;
+}
+
+.sign__error_visible {
+    visibility: visible;
+}
+
+.sign__button {
+    background: #000000;
+    border-radius: 3px;
+    border: none;
+    height: 45px;
+    color: white;
+    padding: 0;
+    margin-top: 124px;
+    /* margin-top: 134px; */
+    /* margin-top: 16vh;
+    position: fixed;
+    top: 552px; */
+    /* position: relative; */
+    width: 396px;
+}
+
+.sign__button_invalid {
+    background: #A0A0A0;
+}
+
+.sign__container {
+    margin: 0;
+    padding: 0;
+    width: 358px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    line-height: 17px;
+}
+
+.sign__text {
+    color: #A0A0A0;
+    margin-right: 6px;
+}
+
+.sign__link {
+    text-decoration: none;
+    color: #000000;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 500px) {
+    .sign__form {
+        width: 320px;
+        margin: 0;
+        align-items: center;
+    }
+
+    .sign__container {
+        width: 260px;
+        align-self: center;
+        font-size: 12px;
+        line-height: 15px;
+    }
+
+    .sign__button {
+        width: 260px;
+    }
+
+    .sign__header {
+        text-align: center;
+        margin-bottom: 90px;
+    }
+
+    .sign__label {
+        align-self: flex-start;
+        margin: 0 30px;
+        width: 260px;
+        padding-bottom: 24px;
+        font-size: 10px;
+        line-height: 12px;
+    }
+
+    .sign__button {
+        margin-top: 222px;
+    }
+    
+
+}
